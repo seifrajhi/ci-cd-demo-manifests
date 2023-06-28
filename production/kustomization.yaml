@@ -1,0 +1,13 @@
+resources:
+- ../base
+nameSuffix: -prod
+patches:
+- path: overlay.yaml
+  target:
+    kind: Deployment
+    labelSelector: app=cicd-demo
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: rajhisaifeddine/ci-cd-gitops
+  newTag: main-b7d5a0f
